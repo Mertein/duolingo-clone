@@ -21,36 +21,38 @@ export default function MarketingPage() {
         <h1 className="text-xl lg:text-3xl font-medium text-neutral-600 max-w-[480px] text-center">
           Learn, practice, and master new languages with Lingo.
         </h1>
-        <ClerkLoading>
-          <Loader className="h-w w-5 animate-spin" />
-        </ClerkLoading>
-        <ClerkLoaded>
-          <SignedOut>
-            <SignUpButton
-              mode="modal"
-              fallbackRedirectUrl="/learn"
-              signInForceRedirectUrl="/learn"
-            >
-              <Button variant="secondary" size="lg" className="w-full">
-                Get Started
+        <div className="flex flex-col items-center gap-y-3 max-w-[330px] w-full">
+          <ClerkLoading>
+            <Loader className="h-w w-5 animate-spin" />
+          </ClerkLoading>
+          <ClerkLoaded>
+            <SignedOut>
+              <SignUpButton
+                mode="modal"
+                fallbackRedirectUrl="/learn"
+                signInForceRedirectUrl="/learn"
+              >
+                <Button variant="secondary" size="lg" className="w-full">
+                  Get Started
+                </Button>
+              </SignUpButton>
+              <SignInButton
+                mode="modal"
+                fallbackRedirectUrl="/learn"
+                signUpForceRedirectUrl="/learn"
+              >
+                <Button variant="primaryOutline" size="lg" className="w-full">
+                  I already have an account
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <Button asChild variant="secondary" size="lg">
+                <Link href="/learn">Continue Learning</Link>
               </Button>
-            </SignUpButton>
-            <SignInButton
-              mode="modal"
-              fallbackRedirectUrl="/learn"
-              signUpForceRedirectUrl="/learn"
-            >
-              <Button variant="primaryOutline" size="lg" className="w-full">
-                I already have an account
-              </Button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <Button asChild variant="secondary" size="lg">
-              <Link href="/learn">Continue Learning</Link>
-            </Button>
-          </SignedIn>
-        </ClerkLoaded>
+            </SignedIn>
+          </ClerkLoaded>
+        </div>
       </div>
     </div>
   );

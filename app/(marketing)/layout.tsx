@@ -1,3 +1,4 @@
+import { Footer } from "./footer";
 import { Header } from "./header";
 
 type Props = {
@@ -9,6 +10,7 @@ const MarketingLayout = ({ children }: Props) => {
     <div className="h-full">
       <Header />
       {children}
+      <Footer />
     </div>
   );
 };
