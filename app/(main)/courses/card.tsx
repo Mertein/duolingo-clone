@@ -7,7 +7,7 @@ type Props = {
   id: number;
   title: string;
   imageSrc: string;
-  onClick: (id: string) => void;
+  onClick: (id: number) => void;
   disabled: boolean;
   active?: boolean;
 };
@@ -15,6 +15,7 @@ type Props = {
 const Card = ({ title, id, imageSrc, disabled, onClick, active }: Props) => {
   return (
     <div
+      onClick={() => onClick(id)}
       className={cn(
         "h-full border-2 rounded-xl border-b-4 hover:bg-black/5 cursor-pointer active:border-b-2 flex flex-column items-center justify-between p-3 pb-6 min-h-[217px] min-w-[200px]",
         disabled && "pointer-events-none opacity-50"
@@ -32,10 +33,12 @@ const Card = ({ title, id, imageSrc, disabled, onClick, active }: Props) => {
         src={imageSrc}
         alt={title}
         height={70}
-        width={93.33}
+        width={300}
         className="rounded-lg drop-shadow-md border object-cover"
       />
-      <p className="text-neutral-700 text-center font-bold mt-3">{title}</p>
+      <p className="text-neutral-700 text-center font-bold mt-3 text-lg">
+        {title}
+      </p>
     </div>
   );
 };
