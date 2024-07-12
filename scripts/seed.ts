@@ -70,6 +70,30 @@ const main = async () => {
       unitId: 1,
       order: 1,
     },
+    {
+      id: 2,
+      title: "Lesson 2",
+      unitId: 1,
+      order: 2,
+    },
+    {
+      id: 3,
+      title: "Lesson 3",
+      unitId: 1,
+      order: 3,
+    },
+    {
+      id: 4,
+      title: "Lesson 4",
+      unitId: 1,
+      order: 4,
+    },
+    {
+      id: 5,
+      title: "Lesson 5",
+      unitId: 1,
+      order: 5,
+    },
    ]);
 
 
