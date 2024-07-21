@@ -1,6 +1,8 @@
 import { challenges } from "@/db/schema";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useCallback } from "react";
+import { useAudio, useKey } from "react-use";
 
 type Props = {
   id: number;
@@ -27,9 +29,16 @@ const Card = ({
   status,
   type,
 }: Props) => {
+  const [audio, _, controls] = useAudio({ src: audioSrc || "" });
+
+  const handleClick = useCallback(() => {
+    if (disabled) return;
+    onClick();
+  }, [disabled, onClick]);
+  useKey(shortcut, handleClick, {}, [handleClick]);
   return (
     <div
-      onClick={() => {}}
+      onClick={handleClick}
       className={cn(
         "h-full border-2 rounded-xl border-b-4 hover:bg-black/5 p-4 lg:p-6 cursor-pointer active:border-b-2",
         selected && "border-sky-300 bg-sky-100 hover:bg-sky-100",
@@ -74,7 +83,9 @@ const Card = ({
               "border-green-500 text-green-500",
             selected && status === "wrong" && "border-rose-500 text-rose-500"
           )}
-        ></div>
+        >
+          {shortcut}
+        </div>
       </div>
     </div>
   );
