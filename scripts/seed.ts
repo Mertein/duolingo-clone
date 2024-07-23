@@ -3,7 +3,6 @@ const {drizzle} = require("drizzle-orm/neon-http");
 import { neon } from "@neondatabase/serverless";
 
 import * as schema from "../db/schema";
-import { title } from "process";
 
 const sql = neon(process.env.DATABASE_URL!);
 const db = drizzle(sql, {schema});
@@ -101,30 +100,58 @@ const main = async () => {
     {
       id: 1,
       lessonId: 1,
-      question: "What is the capital of Spain?",
+      question: "Which one of these is the 'the man'?",
       order: 1, 
       type: "SELECT"
+    }, 
+    {
+      id: 2,
+      lessonId: 1,
+      question: "the man",
+      order: 2, 
+      type: "ASSIST"
     }
    ]);
 
    await db.insert(schema.challengesOptions).values([
     {
-      id: 1,
       challengeId: 1,
-      text: "Madrid",
+      text: "El hombre",
       correct: true,
+      image_src: '/es_man.png'
     }, 
     {    
-      id: 2,
       challengeId: 1,
-      text: "Barcelona",
+      text: "La mujer",
       correct: false,
+         image_src: '/es_woman.png'
    },
    {
-    id: 3,
     challengeId: 1,
-    text: "Seville",
+    text: "El robot",
     correct: false,
+       image_src: '/es_robot.png'
+   }
+   ]);
+
+   await db.insert(schema.challengesOptions).values([
+    {
+      challengeId: 2,
+      text: "El hombre",
+      correct: true,
+      audioSrc: "/es_man.mp3"
+    }, 
+    {    
+      challengeId: 2,
+      text: "La mujer",
+      correct: false,
+      audioSrc: "/es_woman.mp3"
+   },
+   {
+    challengeId: 2,
+    text: "El robot",
+    correct: false,
+    audioSrc: "/es_robot.mp3"
    }
    ]);
 

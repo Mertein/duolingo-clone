@@ -42,7 +42,6 @@ const Challenge = ({
           type={type}
         />
       ))}
-      <p>Challenge</p>
     </div>
   );
 };

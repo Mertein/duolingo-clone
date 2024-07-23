@@ -33,8 +33,10 @@ const Card = ({
 
   const handleClick = useCallback(() => {
     if (disabled) return;
+
+    controls.play();
     onClick();
-  }, [disabled, onClick]);
+  }, [disabled, onClick, controls]);
   useKey(shortcut, handleClick, {}, [handleClick]);
   return (
     <div
@@ -57,6 +59,8 @@ const Card = ({
           <Image src={imageSrc} fill alt={text} />
         </div>
       )}
+      {audioSrc && audio}
+
       <div
         className={cn(
           "flex items-center justify-between",
