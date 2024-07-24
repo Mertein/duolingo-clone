@@ -96,6 +96,8 @@ const main = async () => {
    ]);
 
 
+  //  TODO: Challenge one and two
+
    await db.insert(schema.challenges).values([
     {
       id: 1,
@@ -112,6 +114,7 @@ const main = async () => {
       type: "ASSIST"
     }
    ]);
+   
 
    await db.insert(schema.challengesOptions).values([
     {
@@ -154,6 +157,71 @@ const main = async () => {
     audioSrc: "/es_robot.mp3"
    }
    ]);
+
+
+  //  TODO: Challenge three and four
+   await db.insert(schema.challenges).values([
+    {
+      id: 3,
+      lessonId: 2,
+      question: "Which one of these is the 'the woman'?",
+      order: 1, 
+      type: "SELECT"
+    }, 
+    {
+      id: 4,
+      lessonId: 2,
+      question: "The woman",
+      order: 2, 
+      type: "ASSIST"
+    }
+   ]);
+   
+   await db.insert(schema.challengesOptions).values([
+    {
+      challengeId: 3,
+      text: "El hombre",
+      correct: false,
+      audioSrc: "/es_man.mp3"
+    }, 
+    {    
+      challengeId: 3,
+      text: "La mujer",
+      correct: true,
+      audioSrc: "/es_woman.mp3"
+   },
+   {
+    challengeId: 3,
+    text: "El robot",
+    correct: false,
+    audioSrc: "/es_robot.mp3"
+   }
+   ]);
+
+   await db.insert(schema.challengesOptions).values([
+    {
+      challengeId: 3,
+      text: "El hombre",
+      correct: false,
+      image_src: '/es_man.png'
+    }, 
+    {    
+      challengeId: 3,
+      text: "La mujer",
+      correct: true,
+      image_src: '/es_woman.png'
+   },
+   {
+      challengeId: 3,
+      text: "El robot",
+      correct: false,
+      image_src: '/es_robot.png'
+   }
+   ]);
+
+
+   
+
 
   } catch (error) {
       console.error(error);
