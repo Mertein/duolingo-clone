@@ -9,11 +9,13 @@ import Footer from "./footer";
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
 import { toast } from "sonner";
 import { reduceHearts } from "@/actions/user-progress";
-import { useAudio, useWindowSize } from "react-use";
+import { useAudio, useWindowSize, useMount } from "react-use";
 import Image from "next/image";
 import ResultCard from "./result-card";
 import { useRouter } from "next/navigation";
 import Confetti from "react-confetti";
+import { useHeartsModal } from "@/store/use-hearts-modal";
+import { usePracticeModal } from "@/store/use-practice-modal";
 type Props = {
   initialPercentage: number;
   initiaLessonChallenges: (typeof challenges.$inferSelect & {
@@ -33,9 +35,9 @@ const Quiz = ({
   userSubscription,
 }: Props) => {
   const { width, height } = useWindowSize();
-
   const router = useRouter();
-
+  const { open: openModalHearts } = useHeartsModal();
+  const { open: openModalPractice } = usePracticeModal();
   const [correctAudio, _c, correctControls] = useAudio({ src: "/correct.mp3" });
   const [incorrectAudio, _i, incorrectControls] = useAudio({
     src: "/incorrect.mp3",
@@ -45,11 +47,18 @@ const Quiz = ({
     autoPlay: true,
   });
 
+  useMount(() => {
+    if (initialPercentage === 100) {
+      openModalPractice();
+    }
+  });
   const [pending, startTransition] = useTransition();
   const [lessonId] = useState(initialessonId);
 
   const [hearts, setHearts] = useState(initialHearts);
-  const [percentage, setPercentage] = useState(initialPercentage);
+  const [percentage, setPercentage] = useState(() => {
+    return initialPercentage === 100 ? 0 : initialPercentage;
+  });
   const [challenges] = useState(initiaLessonChallenges);
   const [activeIndex, setActiveIndex] = useState(() => {
     const uncompletedIndex = challenges.findIndex(
@@ -99,7 +108,7 @@ const Quiz = ({
         upsertChallengeProgress(challenge.id)
           .then((res) => {
             if (res?.error === "hearts") {
-              console.error("Missing hearts");
+              openModalHearts();
               return;
             }
             correctControls.play();
@@ -118,7 +127,7 @@ const Quiz = ({
         reduceHearts(challenge.id)
           .then((res) => {
             if (res?.error === "heaarts") {
-              console.error("Missing hearts");
+              openModalHearts();
               return;
             }
             incorrectControls.play();
