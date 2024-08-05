@@ -121,19 +121,22 @@ const main = async () => {
       challengeId: 1,
       text: "El hombre",
       correct: true,
-      image_src: '/es_man.png'
+      imageSrc: '/es_man.png',
+      audioSrc: '/es_man.mp3'
     }, 
     {    
       challengeId: 1,
       text: "La mujer",
       correct: false,
-         image_src: '/es_woman.png'
+      imageSrc: '/es_woman.png',
+      audioSrc: '/es_woman.mp3'
    },
    {
     challengeId: 1,
     text: "El robot",
     correct: false,
-       image_src: '/es_robot.png'
+    imageSrc: '/es_robot.png',
+    audioSrc: "/es_robot.mp3"
    }
    ]);
 
@@ -200,19 +203,19 @@ const main = async () => {
 
    await db.insert(schema.challengesOptions).values([
     {
-      challengeId: 3,
+      challengeId: 4,
       text: "El hombre",
       correct: false,
       image_src: '/es_man.png'
     }, 
     {    
-      challengeId: 3,
+      challengeId: 4,
       text: "La mujer",
       correct: true,
       image_src: '/es_woman.png'
    },
    {
-      challengeId: 3,
+      challengeId: 4,
       text: "El robot",
       correct: false,
       image_src: '/es_robot.png'

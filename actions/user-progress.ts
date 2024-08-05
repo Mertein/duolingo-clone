@@ -1,15 +1,15 @@
 "use server";
 
+import { POINTS_TO_REFILL } from "@/constantes/constants";
 import db from "@/db/drizzle";
 import { getCourseById, getUserProgress } from "@/db/queries";
-import { challengesProgress, userProgress } from "@/db/schema";
+import { challengesProgress, userProgress, challengesOptions } from "@/db/schema";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 
-export const POINTS_TO_REFILL = 50;
 
 export const upsertUserProgress = async (courseId: number) =>{
   const {userId} = auth();
@@ -79,6 +79,7 @@ export const reduceHearts = async (challengeId: number) => {
       eq(challengesProgress.challengeId, challengeId),
     ),
   });
+  console.log({existingChallengeProgress});
  
   const isPractice = !!existingChallengeProgress;
 

@@ -72,10 +72,9 @@ const Quiz = ({
   const challenge = challenges[activeIndex];
   const options = challenge?.challengesOptions ?? [];
   const title =
-    challenge.type === "ASSIST"
+    challenge?.type === "ASSIST"
       ? "Select the correct meaning"
-      : challenge.question;
-
+      : challenge?.question;
   const onSelected = (id: number) => {
     if (status !== "none") return;
     setSelectedOption(id);
@@ -126,7 +125,7 @@ const Quiz = ({
       startTransition(() => {
         reduceHearts(challenge.id)
           .then((res) => {
-            if (res?.error === "heaarts") {
+            if (res?.error === "hearts") {
               openModalHearts();
               return;
             }

@@ -1,7 +1,8 @@
 "use client";
 
-import { POINTS_TO_REFILL, refillHearts } from "@/actions/user-progress";
+import { refillHearts } from "@/actions/user-progress";
 import { Button } from "@/components/ui/button";
+import { POINTS_TO_REFILL } from "@/constantes/constants";
 import Image from "next/image";
 import { useTransition } from "react";
 import { toast } from "sonner";

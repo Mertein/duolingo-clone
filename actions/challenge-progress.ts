@@ -46,6 +46,7 @@ export const upsertChallengeProgress = async (challengeId: number) => {
   };
 
   if (isPractice) {
+    console.log({isPractice})
     await db.update(challengesProgress).set({
       completed: true,
     }).where(eq(challengesProgress.id, existingChallengeProgress.id));

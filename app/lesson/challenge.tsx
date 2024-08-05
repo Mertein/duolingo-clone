@@ -10,6 +10,7 @@ type Props = {
   type: (typeof challenges.$inferSelect)["type"];
   options: (typeof challengesOptions.$inferSelect)[];
 };
+
 const Challenge = ({
   onSelect,
   status,
