@@ -7,7 +7,7 @@ import {
   NumberInput,
 } from "react-admin";
 
-const UnitEdit = () => {
+const LessonEdit = () => {
   return (
     <Edit>
       <SimpleForm>
@@ -19,13 +19,7 @@ const UnitEdit = () => {
           label="title
         "
         />
-        <TextInput
-          source="description"
-          aria-required
-          validate={[required()]}
-          label="Description"
-        />
-        <ReferenceInput source="courseId" reference={"courses"} />
+        <ReferenceInput source="unitId" reference={"units"} />
         <NumberInput
           source="order"
           aria-required
@@ -37,4 +31,4 @@ const UnitEdit = () => {
   );
 };
 
-export default UnitEdit;
+export default LessonEdit;

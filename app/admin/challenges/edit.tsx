@@ -1,31 +1,40 @@
 import {
-  Edit,
   TextInput,
   SimpleForm,
   required,
   ReferenceInput,
   NumberInput,
+  SelectInput,
+  Edit,
 } from "react-admin";
 
-const UnitEdit = () => {
+const ChallengeEdit = () => {
   return (
     <Edit>
       <SimpleForm>
-        <NumberInput source={"id"} validate={[required()]} label="ID" />
         <TextInput
-          source="title"
+          source="question"
           aria-required
           validate={[required()]}
-          label="title
+          label="Question
         "
         />
-        <TextInput
-          source="description"
-          aria-required
+        <SelectInput
+          source="type"
+          choices={[
+            {
+              id: "SELECT",
+              name: "SELECT",
+            },
+            {
+              id: "ASSITS",
+              name: "ASSITS",
+            },
+          ]}
           validate={[required()]}
-          label="Description"
         />
-        <ReferenceInput source="courseId" reference={"courses"} />
+
+        <ReferenceInput source="lessonId" reference="lessons" />
         <NumberInput
           source="order"
           aria-required
@@ -37,4 +46,4 @@ const UnitEdit = () => {
   );
 };
 
-export default UnitEdit;
+export default ChallengeEdit;

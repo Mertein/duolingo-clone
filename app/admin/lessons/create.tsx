@@ -1,5 +1,5 @@
 import {
-  Edit,
+  Create,
   TextInput,
   SimpleForm,
   required,
@@ -7,25 +7,19 @@ import {
   NumberInput,
 } from "react-admin";
 
-const UnitEdit = () => {
+const LessonCreate = () => {
   return (
-    <Edit>
+    <Create>
       <SimpleForm>
-        <NumberInput source={"id"} validate={[required()]} label="ID" />
         <TextInput
           source="title"
           aria-required
           validate={[required()]}
-          label="title
+          label="Title
         "
         />
-        <TextInput
-          source="description"
-          aria-required
-          validate={[required()]}
-          label="Description"
-        />
-        <ReferenceInput source="courseId" reference={"courses"} />
+
+        <ReferenceInput source="unitId" reference="units" />
         <NumberInput
           source="order"
           aria-required
@@ -33,8 +27,8 @@ const UnitEdit = () => {
           label="Order"
         />
       </SimpleForm>
-    </Edit>
+    </Create>
   );
 };
 
-export default UnitEdit;
+export default LessonCreate;
