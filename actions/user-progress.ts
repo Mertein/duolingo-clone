@@ -1,6 +1,6 @@
 "use server";
 
-import { POINTS_TO_REFILL } from "@/constantes/constants";
+import { POINTS_TO_REFILL } from "@/constants/constants";
 import db from "@/db/drizzle";
 import { getCourseById, getUserProgress } from "@/db/queries";
 import { challengesProgress, userProgress, challengesOptions } from "@/db/schema";
