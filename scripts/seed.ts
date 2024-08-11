@@ -96,7 +96,6 @@ const main = async () => {
    ]);
 
 
-  //  TODO: Challenge one and two
 
    await db.insert(schema.challenges).values([
     {
@@ -162,7 +161,6 @@ const main = async () => {
    ]);
 
 
-  //  TODO: Challenge three and four
    await db.insert(schema.challenges).values([
     {
       id: 3,

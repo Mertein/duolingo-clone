@@ -56,7 +56,7 @@ const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
             "Full"
           ) : (
             <div className="flex items-center">
-              <Image src="/ray.svg" alt="Points" height={60} width={60} />
+              <Image src="/points.svg" alt="Points" height={60} width={60} />
               {hasActiveSubscription ? "Active" : "Upggrade"}
               <p>{POINTS_TO_REFILL}</p>
             </div>

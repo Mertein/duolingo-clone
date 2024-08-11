@@ -17,8 +17,7 @@ const main = async () => {
     await db.delete(schema.challenges);
     await db.delete(schema.challengesOptions)
     await db.delete(schema.challengesProgress)
-    // TODO: Add subscriptions to db schema
-    // await db.delete(schema.userSubscriptions)
+    await db.delete(schema.userSubscription)
     console.log('====================================');
     console.log('Resetting finished....');
     console.log('====================================');
