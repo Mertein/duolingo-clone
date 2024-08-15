@@ -119,7 +119,7 @@ const Quiz = ({
             setStatus("correct");
             setPercentage((prev) => prev + 100 / challenges.length);
 
-            //This is a practice
+            //This is a practice lesson
             if (initialPercentage === 100) {
               setHearts((prev) => Math.min(prev + 1, 5));
             }
@@ -137,7 +137,7 @@ const Quiz = ({
             incorrectControls.play();
             setStatus("wrong");
 
-            if (!res?.error) {
+            if (!res?.error && initialPercentage !== 100) {
               setHearts((prev) => Math.max(prev - 1, 0));
             }
           })

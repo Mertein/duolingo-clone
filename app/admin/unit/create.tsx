@@ -1,3 +1,4 @@
+"use client";
 import {
   Create,
   TextInput,
@@ -15,8 +16,7 @@ const UnitCreate = () => {
           source="title"
           aria-required
           validate={[required()]}
-          label="Title
-        "
+          label="Title"
         />
         <TextInput
           source="description"

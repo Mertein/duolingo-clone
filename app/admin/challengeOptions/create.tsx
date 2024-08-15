@@ -1,11 +1,10 @@
+"use client";
 import {
   Create,
   TextInput,
   SimpleForm,
   required,
   ReferenceInput,
-  NumberInput,
-  SelectInput,
   BooleanInput,
 } from "react-admin";
 

@@ -1,10 +1,10 @@
+"use client";
 import {
   BooleanField,
   Datagrid,
   List,
   NumberField,
   ReferenceField,
-  SelectField,
   TextField,
 } from "react-admin";
 

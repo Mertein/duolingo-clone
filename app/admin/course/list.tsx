@@ -1,3 +1,4 @@
+"use client";
 import { Datagrid, List, TextField } from "react-admin";
 
 const CourseList = () => {

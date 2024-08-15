@@ -130,7 +130,7 @@ export const getCourseProgress = cache(async () => {
 
 
 export const getLesson = cache(async (id?: number) => {
-  const {userId}= await auth();
+  const {userId}=  auth();
   const courseProgress = await getCourseProgress();
 
 
@@ -158,7 +158,6 @@ export const getLesson = cache(async (id?: number) => {
   if(!data || !data.challenges) {
     return null;
   };
-
   const normalizedChallenges = data.challenges.map((challenge) => {
     const completed = 
       challenge?.challengesProgress && challenge?.challengesProgress.length > 0 
@@ -167,7 +166,6 @@ export const getLesson = cache(async (id?: number) => {
 
     return {...challenge, completed};
   })
-  console.log(normalizedChallenges.filter((cha) => cha.completed).length)
   return {...data, challenges: normalizedChallenges}; 
 });
 

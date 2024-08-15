@@ -1,3 +1,4 @@
+"use client";
 import { Edit, TextInput, SimpleForm, required } from "react-admin";
 
 const CourseEdit = () => {

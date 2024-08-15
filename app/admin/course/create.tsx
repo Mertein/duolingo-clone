@@ -1,3 +1,5 @@
+"use client";
+
 import { Create, TextInput, SimpleForm, required } from "react-admin";
 
 const CourseCreate = () => {

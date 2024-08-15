@@ -3,32 +3,10 @@ import Promo from "@/components/promo";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { Progress } from "@/components/ui/progress";
 import { UserProgress } from "@/components/user-progress";
+import { quests } from "@/constants/constants";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 import Image from "next/image";
 import { redirect } from "next/navigation";
-
-export const quests = [
-  {
-    title: "Earn 20 px",
-    value: 20,
-  },
-  {
-    title: "Earn 50 px",
-    value: 50,
-  },
-  {
-    title: "Earn 100 px",
-    value: 100,
-  },
-  {
-    title: "Earn 00 px",
-    value: 500,
-  },
-  {
-    title: "Earn 1000 px",
-    value: 1000,
-  },
-];
 
 const QuestPage = async () => {
   const userProgressData = getUserProgress();

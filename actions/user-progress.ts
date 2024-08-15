@@ -80,7 +80,6 @@ export const reduceHearts = async (challengeId: number) => {
       eq(challengesProgress.challengeId, challengeId),
     ),
   });
-  console.log({existingChallengeProgress});
  
   const isPractice = !!existingChallengeProgress;
 

@@ -4,12 +4,12 @@ import Quiz from "../quiz";
 
 type Props = {
   params: {
-    lessondId: number;
+    lessonId: number;
   };
 };
 
 export default async function LessonIdPage({ params }: Props) {
-  const lessonData = await getLesson(params.lessondId);
+  const lessonData = await getLesson(params.lessonId);
   const userProgressData = await getUserProgress();
   const userSubscriptionData = await getUserSubscription();
 
@@ -23,11 +23,7 @@ export default async function LessonIdPage({ params }: Props) {
     return redirect("/learn");
   }
 
-  const initialPercentage =
-    (lesson.challenges.filter((challenge) => challenge.completed).length /
-      lesson.challenges.length) *
-    100;
-
+  const initialPercentage = 100;
   return (
     <Quiz
       initialPercentage={initialPercentage}
