@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import Confetti from "react-confetti";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
+
 type Props = {
   initialPercentage: number;
   initiaLessonChallenges: (typeof challenges.$inferSelect & {
@@ -151,26 +152,27 @@ const Quiz = ({
         {finishAudio}
         <Confetti
           recycle={false}
-          numberOfPieces={500}
-          tweenDuration={10000}
-          width={height}
+          numberOfPieces={1000}
+          tweenDuration={1000}
+          width={width}
           height={height}
         />
-        <div className="h-full max-w-lg mx-auto items-center text-center flex flex-col gap-y-4 lg:gap-y-8">
+        <div className="h-full w-full max-w-lg mx-auto items-center text-center flex flex-col gap-y-4 lg:gap-y-8">
           <Image
-            src="/finish.png"
-            width={100}
-            height={100}
+            src="/finish.svg"
+            width={400}
+            height={400}
             alt="Finish"
             className="hidden lg:block"
           />
           <Image
-            src="/finish.png"
-            width={50}
-            height={50}
+            src="/finish.svg"
+            width={300}
+            height={300}
             alt="Finish"
             className="block lg:hidden"
           />
+
           <h1 className="text-xl lg:text-3xl font-bold text-neutral-700">
             Great Job! <br /> You&apos;ve completed the lesson.
           </h1>

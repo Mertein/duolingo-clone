@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { quests } from "@/app/(main)/quests/page";
 import { Progress } from "./ui/progress";
+import { quests } from "@/app/(main)/quest/page";
 
 type Props = {
   points: number;

@@ -1,7 +1,13 @@
 import { getCourses, getUserProgress } from "@/db/queries";
 import List from "./list";
+import { redirect } from "next/navigation";
+import { auth } from "@clerk/nextjs/server";
 
 const CoursesPage = async () => {
+  const { userId } = auth();
+  if (!userId) {
+    return redirect("/");
+  }
   const coursesData = getCourses();
   const userProgressData = getUserProgress();
   const [courses, userProgress] = await Promise.all([

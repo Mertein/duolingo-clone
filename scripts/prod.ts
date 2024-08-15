@@ -30,7 +30,7 @@ const main = async () => {
       { id: 1, title: "Spanish", imageSrc: "/es.svg" },
       { id: 2, title: "English", imageSrc: "/en.svg" },
       { id: 3, title: "French", imageSrc: "/fr.svg" },
-      { id: 4, title: "German", imageSrc: "/de.svg" },
+      { id: 4, title: "German", imageSrc: "/ger.svg" },
       { id: 5, title: "Japanese", imageSrc: "/jp.svg" },
       { id: 6, title: "Italian", imageSrc: "/it.svg" }
     ]).returning();
@@ -57,7 +57,7 @@ const main = async () => {
           const challenges = await db.insert(schema.challenges).values([
             { lessonId: lesson.id, type: "SELECT", question: "Which one of these is 'the man'?", order: 1 },
             { lessonId: lesson.id, type: "SELECT", question: "Which one of these is 'the woman'?", order: 2 },
-            { lessonId: lesson.id, type: "SELECT", question: "Which one of these is 'the child'?", order: 3 },
+            { lessonId: lesson.id, type: "SELECT", question: "Which one of these is 'the boy'?", order: 3 },
             { lessonId: lesson.id, type: "ASSIST", question: "'the man'", order: 4 },
             { lessonId: lesson.id, type: "SELECT", question: "Which one of these is 'the zombie'?", order: 5 },
             { lessonId: lesson.id, type: "SELECT", question: "Which one of these is 'the robot'?", order: 6 },
@@ -90,41 +90,39 @@ const getChallengeOptions = (challenge: any) => {
       ];
     case 2:
       return [
-        { challengeId: challenge.id, text: "La mujer", correct: true, audioSrc: "/es_woman.mp3" },
-        { challengeId: challenge.id, text: "El robot", correct: false, audioSrc: "/es_robot.mp3" },
-        { challengeId: challenge.id, text: "El hombre", correct: false, audioSrc: "/es_man.mp3" },
+        { challengeId: challenge.id, text: "La mujer", correct: true, imageSrc:'/es_woman.png', audioSrc: "/es_woman.mp3" },
+        { challengeId: challenge.id, text: "El robot", correct: false, imageSrc:'/es_robot.png', audioSrc: "/es_robot.mp3" },
+        { challengeId: challenge.id, text: "El hombre", correct: false, imageSrc:'/es_man.png', audioSrc: "/es_man.mp3" },
       ];
     case 3:
       return [
-        { challengeId: challenge.id, text: "La mujer", correct: false, audioSrc: "/es_woman.mp3" },
-        // TODO: ADD the boy.mp3 and svg
-        { challengeId: challenge.id, text: "El niño ", correct: true, audioSrc: "/es_man.mp3" },
-        { challengeId: challenge.id, text: "El robot", correct: false, audioSrc: "/es_robot.mp3" },
+        { challengeId: challenge.id, text: "La mujer", correct: false, imageSrc:'/es_woman.png', audioSrc: "/es_woman.mp3" },
+        { challengeId: challenge.id, text: "El niño ", correct: true, imageSrc:'/es_boy.svg', audioSrc: "/es_boy.mp3" },
+        { challengeId: challenge.id, text: "El robot", correct: false,  imageSrc:'/es_robot.png',audioSrc: "/es_robot.mp3" },
       ];
     case 4:
       return [
         { challengeId: challenge.id, text: "La mujer", correct: false, audioSrc: "/es_woman.mp3" },
-        { challengeId: challenge.id, text: "El hombre", correct: true, audioSrc: "/es_man.mp3" },
+        { challengeId: challenge.id, text: "El hombre", correct: true,audioSrc: "/es_man.mp3" },
         { challengeId: challenge.id, text: "El robot", correct: false, audioSrc: "/es_robot.mp3" },
       ];
     case 5:
       return [
-        // TODO: ADD the zombie.mp3 and svg
-        { challengeId: challenge.id, text: "El zombie", correct: true, audioSrc: "/es_zombie.mp3" },
-        { challengeId: challenge.id, text: "El hombre", correct: false, audioSrc: "/es_man.mp3" },
-        { challengeId: challenge.id, text: "La mujer", correct: false, audioSrc: "/es_woman.mp3" },
+        { challengeId: challenge.id, text: "El zombie", correct: true,imageSrc:'/es_zombie.svg', audioSrc: "/es_zombie.mp3" },
+        { challengeId: challenge.id, text: "El hombre", correct: false,imageSrc:'/es_man.png', audioSrc: "/es_man.mp3" },
+        { challengeId: challenge.id, text: "La mujer", correct: false,imageSrc:'/es_woman.png', audioSrc: "/es_woman.mp3" },
       ];
     case 6:
       return [
-        { challengeId: challenge.id, text: "El robot", correct: true, audioSrc: "/es_robot.mp3" },
-        { challengeId: challenge.id, text: "El zombie", correct: false, audioSrc: "/es_zombie.mp3" },
-        { challengeId: challenge.id, text: "La mujer", correct: false, audioSrc: "/es_woman.mp3" },
+        { challengeId: challenge.id, text: "El robot", correct: true,imageSrc:'/es_robot.png', audioSrc: "/es_robot.mp3" },
+        { challengeId: challenge.id, text: "El zombie", correct: false,imageSrc:'/es_zombie.svg', audioSrc: "/es_zombie.mp3" },
+        { challengeId: challenge.id, text: "La mujer", correct: false,imageSrc:'/es_woman.png', audioSrc: "/es_woman.mp3" },
       ];
     case 7:
       return [
-        { challengeId: challenge.id, text: "La niña", correct: false, audioSrc: "/es_nina.mp3" },
-        { challengeId: challenge.id, text: "El hombre", correct: false, audioSrc: "/es_man.mp3" },
-        { challengeId: challenge.id, text: "La mujer", correct: true, audioSrc: "/es_woman.mp3" },
+        { challengeId: challenge.id, text: "La niña", correct: true,imageSrc:'/es_girl.svg', audioSrc: "/es_girl.mp3" },
+        { challengeId: challenge.id, text: "El hombre", correct: false,imageSrc:'/es_man.png', audioSrc: "/es_man.mp3" },
+        { challengeId: challenge.id, text: "La mujer", correct: false, imageSrc:'/es_woman.png',audioSrc: "/es_woman.mp3" },
       ];
     case 8:
       return [
@@ -135,9 +133,9 @@ const getChallengeOptions = (challenge: any) => {
     case 9:
       return [
         // TODO: Add apple and watch mp3
-        { challengeId: challenge.id, text: "man", correct: true, audioSrc: "/es_man.mp3" },
-        { challengeId: challenge.id, text: "apple", correct: false, audioSrc: "/es_woman.mp3" },
-        { challengeId: challenge.id, text: "watch", correct: false, audioSrc: "/es_robot.mp3" },
+        { challengeId: challenge.id, text: "man", correct: true, audioSrc: "/en_man.mp3" },
+        { challengeId: challenge.id, text: "apple", correct: false, audioSrc: "/en_apple.mp3" },
+        { challengeId: challenge.id, text: "watch", correct: false, audioSrc: "/en_watch.mp3" },
       ];
     default:
       return [];
