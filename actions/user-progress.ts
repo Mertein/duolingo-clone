@@ -54,7 +54,7 @@ export const upsertUserProgress = async (courseId: number) =>{
 }
 
 export const reduceHearts = async (challengeId: number) => {
-  const {userId} = await auth();
+  const {userId} = auth();
 
   if(!userId) {
     throw new Error("Unauthorized");
@@ -74,7 +74,7 @@ export const reduceHearts = async (challengeId: number) => {
 
   const lessonId = challenge.lessonId;
 
-  const existingChallengeProgress = await db.query.userProgress.findFirst({
+  const existingChallengeProgress = await db.query.challengesProgress.findFirst({
     where: and(
       eq(challengesProgress.userId, userId),
       eq(challengesProgress.challengeId, challengeId),
