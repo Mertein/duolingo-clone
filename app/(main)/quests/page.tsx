@@ -7,7 +7,7 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-const quests = [
+export const quests = [
   {
     title: "Earn 20 px",
     value: 20,

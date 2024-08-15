@@ -1,7 +1,7 @@
-import CourseList from "./list";
+import LessonsList from "./list";
 
-const CoursePage = () => {
-  return <CourseList />;
+const LessonsPage = () => {
+  return <LessonsList />;
 };
 
-export default CoursePage;
+export default LessonsPage;

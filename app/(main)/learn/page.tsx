@@ -62,7 +62,7 @@ export default async function LearnPage() {
           hasActiveSubscription={!!userSubscription?.isActive}
         />
         {!userSubscription?.isActive && <Promo />}
-        <Quests />
+        <Quests points={userProgress?.points} />
       </StickyWrapper>
     </div>
   );

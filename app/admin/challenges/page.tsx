@@ -1,7 +1,7 @@
-import CourseList from "./list";
+import ChallengesList from "./list";
 
-const CoursePage = () => {
-  return <CourseList />;
+const ChallengesPage = () => {
+  return <ChallengesList />;
 };
 
-export default CoursePage;
+export default ChallengesPage;
